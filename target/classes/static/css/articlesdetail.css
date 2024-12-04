@@ -1,0 +1,81 @@
+/* 整個文章區塊的布局 */
+#post-section {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    gap: 10px; /* 各區塊之間的間距 */
+    padding-right: 5px; /* 與瀏覽器右側保持 5px 距離 */
+    box-sizing: border-box; /* 確保內邊距和邊框包含在寬度計算中 */
+}
+
+/* 標題框、作者框、文章內容框的通用樣式 */
+#post-title, #post-author, #post-content  {
+    background-color: white; /* 框框內部設置白色背景 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加輕微陰影 */
+    width: calc(100% - 5px); /* 框與右側保持 5px 距離 */
+    padding: 10px; /* 內邊距 */
+    font-size: 16px; /* 預設字體大小 */
+    border: 1px solid #ccc; /* 灰色邊框 */
+    border-radius: 5px; /* 圓角 */
+    box-sizing: border-box; /* 包括內邊距與邊框在內的寬度計算 */
+}
+
+/* 標題的特殊樣式 */
+#post-title h1 {
+	display: flex; /* 啟用 Flexbox */
+	align-items: center; /* 垂直居中 */
+    font-size: 20px; /* 較大的字體 */
+    font-weight: bold; /* 加粗 */
+    margin: 0; /* 去除默認的上下外邊距 */
+    color: #333; /* 深灰色字體 */
+    min-height: 50px; /* 設置最小高度為 400px */
+}
+
+/* 作者框的樣式 */
+#post-author {
+    font-size: 16px; /* 較小的字體 */
+    color: #555; /* 中灰色字體 */
+    margin-top: 1px; /* 與標題保持距離 */
+}
+
+/* 文章內容框的樣式 */
+#post-content {
+    line-height: 1.6; /* 行距，提升可讀性 */
+    color: rgb(0, 0, 0); /* 深灰色字體 */
+    margin-top: 1px; /* 與作者保持距離 */
+    min-height: 400px; /* 設置最小高度為 400px */
+    overflow-y: auto; /* 超出時允許滾動 */
+    padding: 10px; /* 內邊距 */
+    font-size: 18px; /* 預設字體大小 */
+}
+#post-time {
+    color: #666; /* 字體顏色 */
+    margin: 1px 0; /* 上下間距 */
+    border-radius: 5px; /* 圓角效果 */
+    display: inline-block; /* 使其成為區塊元素 */
+    background-color: white; /* 框框內部設置白色背景 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加輕微陰影 */
+    width: calc(100% - 5px); /* 框與右側保持 5px 距離 */
+    padding: 10px; /* 內邊距 */
+    font-size: 16px; /* 預設字體大小 */
+    border: 1px solid #ccc; /* 灰色邊框 */
+    box-sizing: border-box; /* 包括內邊距與邊框在內的寬度計算 */
+}
+
+
+
+/* 圖片區塊的樣式 */
+.images img {
+    max-width: 100%; /* 確保圖片不會超出容器寬度 */
+    border-radius: 5px; /* 圓角 */
+    margin-top: 10px; /* 與其他內容保持距離 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加輕微陰影 */
+}
+
+/* 增強整體可視效果的背景色 */
+body {
+    background-color: #f9f9f9; /* 網頁背景為淺灰色，突顯白色框框 */
+    font-family: Arial, sans-serif; /* 字體 */
+    color: #333; /* 全局字體顏色 */
+    margin: 0; /* 去除默認邊距 */
+    padding: 0; /* 去除默認內邊距 */
+}

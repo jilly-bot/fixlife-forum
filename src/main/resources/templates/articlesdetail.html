@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-TW" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${post.title}">文章詳細頁面</title>
+    <link rel="stylesheet" th:href="@{/css/articlesdetail.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+</head>
+<body>
+    <div th:fragment="content" id="post-section">
+        <!-- 顯示文章標題 -->
+        <div id="post-title">
+            <h1>標題：<span th:text="${post.title}">文章標題</span></h1>
+        </div>
+
+        <!-- 顯示作者名稱 -->
+        <div id="post-author">
+            <p><strong>作者：</strong><span th:text="${post.authorName}">作者名稱</span></p>
+        </div>
+        
+        <!-- 顯示文章發表時間 -->
+        <div id="post-time">
+            <p><strong>發表時間：</strong><span th:text="${formattedPostTime}">發表時間</span></p>
+        </div>
+        
+        <!-- 顯示文章內容 -->
+        <div id="post-content">
+            <p th:text="${post.content}">文章內容</p>
+        </div>
+        
+        <!-- 顯示圖片 -->
+        <div class="images">
+            <img th:src="@{/images/{pic}(pic=${pic.pic})}" 
+                 th:each="pic : ${pics}" 
+                 th:alt="'圖片編號：' + ${pic.picNo}" />
+        </div>
+        
+        <div id="interaction-buttons">
+             
+			
+			<!-- 按讚按鈕 -->
+		    <button id="like-btn" 
+		            th:data-post="${post.postNo}" 
+		            onclick="toggleLike(this)">
+		        <i class="fas fa-thumbs-up"></i> 讚 <span th:text="${post.totalLikes}">0</span>
+		    </button>
+		    
+		    <!-- 倒讚按鈕 -->
+		    <button id="dislike-btn" 
+		            th:data-post="${post.postNo}" 
+		            onclick="toggleDislike(this)">
+		        <i class="fas fa-thumbs-down"></i> 倒讚 <span th:text="${post.totalDislikes}">0</span>
+		    </button>
+		</div>
+    </div>
+    
+  	<script type="text/javascript" th:src="@{/vendors/jquery/jquery-3.7.1.min.js}"></script> 
+    <script th:src="@{/js/index.js}"></script> 
+</body>
+</html>

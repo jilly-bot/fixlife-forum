@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文章列表</title>
+</head>
+<body>
+    <h1>文章列表</h1>
+
+    <!-- 發表文章的表單 -->
+    <form action="/articles" method="post">
+        <label for="title">標題:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="content">內容:</label>
+        <textarea id="content" name="content" required></textarea>
+        <button type="submit">發表文章</button>
+    </form>
+
+    <h2>已發表的文章</h2>
+    <ul>
+        <!-- 使用 Thymeleaf 來迭代顯示文章 -->
+        <li th:each="article : ${articles}">
+            <h3 th:text="${article.title}"></h3>
+            <p th:text="${article.content}"></p>
+        </li>
+    </ul>
+</body>
+</html>
